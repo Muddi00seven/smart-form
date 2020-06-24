@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  padding: 30px 500px 30px 500px;
+}
+
+.Form-Border {
+  border-style: dotted;
+  border-radius: 15px;
+  border-color: #282c34;
+  opacity: 1;
+  padding: 25px;
+}
+
+
+.drop-down{
+  margin-left: -190px;
+}
