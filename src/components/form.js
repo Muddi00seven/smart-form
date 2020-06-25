@@ -10,7 +10,8 @@ const Form = () => {
     
     return (
         <div className="container">
-            <h1>DAPP FORM</h1>
+            <h1>LC Application</h1>
+            <hr></hr>
 
      <form className="Form-Border">
                     <Textfield
@@ -29,7 +30,10 @@ const Form = () => {
                         style={{width: '350px'}}
                     />
 
-                    <br/><br/><br/>
+                    <br/>
+                    <h6>Trading Terms</h6>
+                    <hr></hr>
+                    <br/><br/>
 
                     <Textfield
                         onChange={() => {}}
