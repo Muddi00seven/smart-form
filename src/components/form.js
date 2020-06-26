@@ -20,7 +20,7 @@ const Form = () => {
                         style={{width: '350px'}}
                     />
 
-                    <br/><br/><br/>
+                    <br/><br/>
 
 
                     <Textfield
@@ -33,20 +33,24 @@ const Form = () => {
                     <br/>
                     <h6>Trading Terms</h6>
                     <hr></hr>
-                    <br/><br/>
+                   
 
                     <Textfield
                         onChange={() => {}}
-                        label="Traveling Terms..."
+                        label="Terms..."
                         rows={3}
                         style={{width: '350px'}}
                     />
-
-                    <br/><br/><br/>
-
-
-                    <DropDown/>
-                    <br/><br/><br/>
+                    <br/><br/>
+                    <Textfield
+                        onChange={() => {}}
+                        label="Destination Port"
+                        rows={3}
+                        style={{width: '350px'}}
+                    />
+<br></br>
+                    {/* <DropDown/>
+                    <br/><br/><br/> */}
 
 
                     <Textfield
@@ -57,6 +61,25 @@ const Form = () => {
                         floatingLabel
                         style={{width: '350px'}}
                     />
+                    <br/>
+                    <h5>Mediators</h5>
+                    <hr></hr>
+                    <br/>
+                    <Textfield
+                        onChange={() => {}}
+                        label="Origin Agent"
+                        rows={3}
+                        style={{width: '350px'}}
+                    />
+                    <br></br>
+                    <Textfield
+                        onChange={() => {}}
+                        label="Destination Agent"
+                        rows={3}
+                        style={{width: '350px'}}
+                    />
+                    <br></br>
+                    <button height='400px'>Issue SmartLC</button>
     </form>
         </div>
         )

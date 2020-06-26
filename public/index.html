@@ -43,4 +43,15 @@
     -->
 
   </body>
+  <script>
+   var account = web3.eth.getAccounts((error,result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            return result[0];
+        }
+    });
+console.log("CHECK",account);
+
+</script>
 </html>
