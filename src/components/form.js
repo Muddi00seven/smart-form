@@ -29,30 +29,6 @@ const Form = () => {
                         style={{width: '350px'}}
                     />
 
-                    <br/><br/><br/>
-
-                    <Textfield
-                        onChange={() => {}}
-                        label="Traveling Terms..."
-                        rows={3}
-                        style={{width: '350px'}}
-                    />
-
-                    <br/><br/><br/>
-
-
-                    <DropDown/>
-                    <br/><br/><br/>
-
-
-                    <Textfield
-                        onChange={() => {}}
-                        pattern="-?[0-9]*(\.[0-9]+)?"
-                        error="Input is not a number!"
-                        label="Amount..."
-                        floatingLabel
-                        style={{width: '350px'}}
-                    />
     </form>
         </div>
         )
