@@ -13,6 +13,7 @@
     "react-mdl": "^2.1.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.0",
+    "web3": "^1.2.9",
     "surge": "^0.21.3"
   },
   "scripts": {
