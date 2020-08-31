@@ -69,7 +69,7 @@ export const loadContract = async(lcContract,tokenContract, accounts,  dispatch)
 console.log("INLoad contract",lcContract,tokenContract, accounts)
    
 // const lcs  = await getBuyerLcs(lcContract, accounts[0],dispatch);
-let agent ='0x145eFf1dD342643dd88B2D7b330C8aA5BA8632C2'; //accounts[0];
+// let agent ='0x145eFf1dD342643dd88B2D7b330C8aA5BA8632C2'; //accounts[0];
 // const response  = await getOriginAgentLcs(lcContract, agent,dispatch);      
     //const buyersLC_list=  viewbuyersLcs(lcContraact, accounts,  dispatch);
     }

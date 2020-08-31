@@ -13,15 +13,16 @@ const Form = () => {
     const [{web3,accounts,myContract}, dispatch] = useStore();
     const[number,setNumber]= useState();
 
-    async function handleClick() {
+    async function handleClick(number) {
         console.log("Number",number);
+        // alert(number)
         const response = await setNumber(myContract,accounts,number);
     }
     return (
         <div className="container">
             <h1>DAPP FORM</h1>
 
-     <form className="Form-Border">
+     <form className="Form-Border" onSubmit={handleClick}>
                     {/* <Textfield
                         onChange={() => {}}
                         label="Beneficiary Address..."
@@ -32,12 +33,16 @@ const Form = () => {
 
 
                     <Textfield
-                        onChange={(e) => setNumber(e.value)}
                         label="Product Description..."
                         rows={3}
+                        value = {number}
+                        onChange={(e) => setNumber(e.target.value)}
+
                         style={{width: '350px'}}
                     />
-                    <button onClick={handleClick}> Click</button>
+                    {/* <button onClick={handleClick}> Click</button> */}
+                    <button > Click</button>
+
 
     </form>
         </div>
