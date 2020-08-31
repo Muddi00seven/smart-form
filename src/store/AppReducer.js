@@ -33,18 +33,18 @@ export default (state, action) => {
       case 'SETUP_CONTRACT':
         return {
           ...state,
-          lcContract: action.payload
+          myContract: action.payload
         }
-        case 'SETUP_TOKEN':
-        return {
-          ...state,
-          tokenContract: action.payload
-        }
-        case 'SET_TOKEN_BALANCE':
-        return {
-          ...state,
-          yenix: action.payload
-        }
+        // case 'SETUP_TOKEN':
+        // return {
+        //   ...state,
+        //   tokenContract: action.payload
+        // }
+        // case 'SET_TOKEN_BALANCE':
+        // return {
+        //   ...state,
+        //   yenix: action.payload
+        // }
       case 'ADD_ETHEREUM_ACCOUNTS':
         return {
           ...state,

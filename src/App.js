@@ -6,10 +6,10 @@ import { Grid, Cell , Button , Textfield} from 'react-mdl';
 import './App.css'
 function App() {
   return (
-    <div className="App">
-          {/* <Form/> */}
-<Form/>
-    </div>
+    <GlobalProvider>
+      <Form/>
+    </GlobalProvider>
+  
   );
 }
 

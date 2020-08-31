@@ -12,12 +12,9 @@ const initialState = {
 
   web3: null,
   accounts: [],
-  tokenContract: null,
-  orderBookcontract: null,
-  optionFactoryContract:null,
- activeSellOrders:[],
- activeBuyOrders:[],
- ownedOptions:[],
+  myContract: null,
+  
+
 }
 
 // Create context.

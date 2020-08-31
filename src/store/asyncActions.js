@@ -1,6 +1,6 @@
 import { setupWeb3, setupContract, addEthereumAccounts, issueSmartLc, web3LoadingError, setupToken,setTokenBalance } from "./actions";
 import Web3 from "web3";
-import { SMART_LC_ABI, SMART_LC_ADDRESS  } from '../ABI/smartLc';
+import { MY_CONTRACT_ADDRESS, MY_CONTRACT_ABI  } from '../ABI/myContract';
 import { YENIX_ABI, YENIX_ADDRESS } from "../ABI/Yenix";
 import {  viewbuyersLcs,viewLcsById,tokenBalance,getBuyerLcs,getOriginAgentLcs} from '../APIs/viewTransactions';
 
@@ -13,13 +13,10 @@ export const loadBlockchain = async(dispatch) =>{
             const web3 = new Web3(Web3.givenProvider);
             await Web3.givenProvider.enable();
             dispatch(setupWeb3(web3));
-            const contract = new web3.eth.Contract(SMART_LC_ABI, SMART_LC_ADDRESS);
-            const token = new web3.eth.Contract(YENIX_ABI,YENIX_ADDRESS);// create yenix contract instance
-            dispatch(setupToken(token));
-            console.log("TokenContract Loaded",token);
+            const contract = new web3.eth.Contract(MY_CONTRACT_ABI, MY_CONTRACT_ADDRESS);
+                               
+            dispatch(setupContract(contract));
            
-            dispatch(setupContract(contract));
-            dispatch(setupContract(contract));
             const accounts = await web3.eth.getAccounts();
             dispatch(addEthereumAccounts(accounts));
             console.log("contract = ",contract);
@@ -42,12 +39,21 @@ export const loadBlockchain = async(dispatch) =>{
 }
 // const  loadOriginAgentLCs(){}
 
-export const registerLc = async(contract, accounts, lc, dispatch)=>{
-    console.log("before LC transaction",lc);
-    console.log("Contract",contract,"Account", typeof(accounts[0]));
-   const receipt =  await contract.methods.registerLc(lc.seller,lc.amount,lc.originAgent,lc.destinationAgent).send({from : accounts[0]});
-   console.log("after  LC transaction ", receipt);
-    dispatch(issueSmartLc(lc));
+export const setNumber = async(contract, accounts, number)=>{
+    console.log("before setting Number",number);
+ 
+   const receipt =  await contract.methods.setNumber(number).send({from : accounts[0]});
+   console.log("after  setting number ", receipt);
+   // dispatch(issueSmartLc(lc));
+
+}
+export const viewBoth = async(contract, accounts,  dispatch)=>{
+    console.log("before virewing");
+ 
+   const receipt =  await contract.methods.getBoth().call({from : accounts[0]});
+   console.log("after  viewing  ", receipt);
+   // dispatch(issueSmartLc(lc));
+
 }
 
 // export const registerLc = async(contract, accounts, transaction, dispatch)=>{
