@@ -9,9 +9,11 @@ import DropDown from './dropdown';
   
     
 const Form = () => {
+    
     const [{web3,accounts,myContract}, dispatch] = useStore();
-    const[number,setNumber]= useState;
-    const handleClick=async()=>{
+    const[number,setNumber]= useState();
+
+    async function handleClick() {
         console.log("Number",number);
         const response = await setNumber(myContract,accounts,number);
     }

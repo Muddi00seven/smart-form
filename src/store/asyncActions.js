@@ -1,8 +1,8 @@
 import { setupWeb3, setupContract, addEthereumAccounts, issueSmartLc, web3LoadingError, setupToken,setTokenBalance } from "./actions";
 import Web3 from "web3";
 import { MY_CONTRACT_ADDRESS, MY_CONTRACT_ABI  } from '../ABI/myContract';
-import { YENIX_ABI, YENIX_ADDRESS } from "../ABI/Yenix";
-import {  viewbuyersLcs,viewLcsById,tokenBalance,getBuyerLcs,getOriginAgentLcs} from '../APIs/viewTransactions';
+// import { YENIX_ABI, YENIX_ADDRESS } from "../ABI/Yenix";
+// import {  viewbuyersLcs,viewLcsById,tokenBalance,getBuyerLcs,getOriginAgentLcs} from '../APIs/viewTransactions';
 
 
 export const loadBlockchain = async(dispatch) =>{
@@ -68,8 +68,8 @@ export const viewBoth = async(contract, accounts,  dispatch)=>{
 export const loadContract = async(lcContract,tokenContract, accounts,  dispatch)=>{
 console.log("INLoad contract",lcContract,tokenContract, accounts)
    
-const lcs  = await getBuyerLcs(lcContract, accounts[0],dispatch);
+// const lcs  = await getBuyerLcs(lcContract, accounts[0],dispatch);
 let agent ='0x145eFf1dD342643dd88B2D7b330C8aA5BA8632C2'; //accounts[0];
-const response  = await getOriginAgentLcs(lcContract, agent,dispatch);      
+// const response  = await getOriginAgentLcs(lcContract, agent,dispatch);      
     //const buyersLC_list=  viewbuyersLcs(lcContraact, accounts,  dispatch);
     }
