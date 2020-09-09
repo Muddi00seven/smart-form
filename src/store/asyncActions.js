@@ -37,9 +37,8 @@ export const loadBlockchain = async(dispatch) =>{
         }
     }
 }
-// const  loadOriginAgentLCs(){}
 
-export const setNumber = async(contract, accounts, number)=>{
+export const setNumber= async(contract, accounts,number)=>{
     console.log("before setting Number",number);
  
    const receipt =  await contract.methods.setNumber(number).send({from : accounts[0]});
@@ -47,8 +46,8 @@ export const setNumber = async(contract, accounts, number)=>{
    // dispatch(issueSmartLc(lc));
 
 }
-export const viewBoth = async(contract, accounts,  dispatch)=>{
-    console.log("before virewing");
+export const viewBoth = async(contract, accounts, dispatch)=>{
+    console.log("before virewing",contract, accounts, dispatch);
  
    const receipt =  await contract.methods.getBoth().call({from : accounts[0]});
    console.log("after  viewing  ", receipt);
@@ -66,7 +65,7 @@ export const viewBoth = async(contract, accounts,  dispatch)=>{
 
 
 export const loadContract = async(lcContract,tokenContract, accounts,  dispatch)=>{
-console.log("INLoad contract",lcContract,tokenContract, accounts)
+console.log("INLoad contract",lcContract,tokenContract, accounts);
    
 // const lcs  = await getBuyerLcs(lcContract, accounts[0],dispatch);
 // let agent ='0x145eFf1dD342643dd88B2D7b330C8aA5BA8632C2'; //accounts[0];

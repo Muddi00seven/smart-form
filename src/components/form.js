@@ -11,18 +11,58 @@ import DropDown from './dropdown';
 const Form = () => {
     
     const [{web3,accounts,myContract}, dispatch] = useStore();
-    const[number,setNumber]= useState();
+    const[number,addNumber]= useState();
 
-    async function handleClick(number) {
-        console.log("Number",number);
-        // alert(number)
-        const response = await setNumber(myContract,accounts,number);
-    }
+    // const  handleClick=async(e)=>{
+    //     e.preventDefault();
+    //     console.log("INSUBMIT",myContract.methods,number);
+    //      alert(number);
+    //      try{
+    //         console.log("Intry",web3,myContract,accounts,number);
+    //      setNumber(myContract, accounts, number);
+    //     }catch (error){
+    //         console.log("error trax = ",error);
+    //     }
+    // }
+
+    const onSubmit = async(e) => {
+        e.preventDefault();
+        console.log("InSubmit");
+        try {
+           
+              
+            
+            await setNumber(myContract, accounts, number);
+          
+        }catch (error){
+            console.log("error trax = ",error);
+          
+        }
+      
+      }
+
+
+      const getboth = async(e) => {
+        
+        
+       
+          try{ 
+              
+            console.log("getboth",myContract, accounts, dispatch);
+          let result=  await viewBoth(myContract, accounts, dispatch);
+          console.log("Gettin both values",result);
+          
+        }catch (error){
+            console.log("error trax = ",error);
+          
+        }
+      
+      }
     return (
         <div className="container">
             <h1>DAPP FORM</h1>
 
-     <form className="Form-Border" onSubmit={handleClick}>
+     <form className="Form-Border" onSubmit={onSubmit}>
                     {/* <Textfield
                         onChange={() => {}}
                         label="Beneficiary Address..."
@@ -35,13 +75,14 @@ const Form = () => {
                     <Textfield
                         label="Product Description..."
                         rows={3}
-                        value = {number}
-                        onChange={(e) => setNumber(e.target.value)}
+                        // value= {number}
+                        onChange={(e) => addNumber(e.target.value)}
 
                         style={{width: '350px'}}
                     />
                     {/* <button onClick={handleClick}> Click</button> */}
-                    <button > Click</button>
+                    <button > Add Number</button>
+                    <button onClick={viewBoth}> getboth</button>
 
 
     </form>
