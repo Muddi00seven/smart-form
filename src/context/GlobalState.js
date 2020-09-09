@@ -13,6 +13,7 @@ const initialState = {
   web3: null,
   accounts: [],
   myContract: null,
+  result:[]
   
 
 }

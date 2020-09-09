@@ -51,6 +51,12 @@ export const setupToken = (tokenContract) => {
         payload: tokenContract
     };
 }
+export const setResult = (arg) => {
+    return {
+        type: 'SET_RESULT',
+        result: arg
+    };
+}
 export const addEthereumAccounts = (accounts) => {
     return {
         type: 'ADD_ETHEREUM_ACCOUNTS',

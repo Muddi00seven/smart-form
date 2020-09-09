@@ -7,10 +7,10 @@ export default (state, action) => {
         }
       
 
-        case 'SET_Buyer_LC':
+        case 'SET_RESULT':
           return {
             ...state,
-            buyersLC: action.payload
+            result: action.payload
           }
 
           case 'SET_OriginAgent_LC':

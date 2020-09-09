@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import {Grid, Textfield,  Card, CardText } from 'react-mdl';
 import{useStore} from  ".././context/GlobalState";
 import{setNumber,viewBoth} from "../store/asyncActions";
@@ -10,30 +10,31 @@ import DropDown from './dropdown';
     
 const Form = () => {
     
-    const [{web3,accounts,myContract}, dispatch] = useStore();
+    const [{web3,accounts,myContract,result}, dispatch] = useStore();
+    console.log("RESULT",result);
     const[number,addNumber]= useState();
 
-    // const  handleClick=async(e)=>{
-    //     e.preventDefault();
-    //     console.log("INSUBMIT",myContract.methods,number);
-    //      alert(number);
-    //      try{
-    //         console.log("Intry",web3,myContract,accounts,number);
-    //      setNumber(myContract, accounts, number);
-    //     }catch (error){
-    //         console.log("error trax = ",error);
-    //     }
-    // }
-
+    useEffect(()=>{
+        (async ()=>{
+            
+            
+            if(myContract && accounts[0]){
+                const ressponse = await viewBoth(myContract, accounts, dispatch);;
+               console.log("RESULT",result);
+            }
+           
+            
+            })();
+    },[web3,accounts,myContract,,dispatch])
     const onSubmit = async(e) => {
         e.preventDefault();
         console.log("InSubmit");
         try {
-           
-              
+            
             
             await setNumber(myContract, accounts, number);
-          
+            let response=  await viewBoth(myContract, accounts, dispatch);
+            console.log("Gettin both values",response);
         }catch (error){
             console.log("error trax = ",error);
           
@@ -43,24 +44,26 @@ const Form = () => {
 
 
       const getboth = async(e) => {
-        
+        e.preventDefault();
         
        
-          try{ 
+        
               
-            console.log("getboth",myContract, accounts, dispatch);
-          let result=  await viewBoth(myContract, accounts, dispatch);
+            console.log("getboth",myContract.methods, accounts, dispatch);
+          let response=  await viewBoth(myContract, accounts, dispatch);
           console.log("Gettin both values",result);
           
-        }catch (error){
-            console.log("error trax = ",error);
+        // }catch (error){
+        //     console.log("error trax = ",error);
           
-        }
+        // }
       
       }
     return (
         <div className="container">
-            <h1>DAPP FORM</h1>
+            <h1>DAPP FORM</h1><br>
+            </br>
+    <h2>Number is. {(result)?result[0]:""} , while value is {}</h2>
 
      <form className="Form-Border" onSubmit={onSubmit}>
                     {/* <Textfield

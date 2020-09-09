@@ -1,4 +1,4 @@
-import { setupWeb3, setupContract, addEthereumAccounts, issueSmartLc, web3LoadingError, setupToken,setTokenBalance } from "./actions";
+import { setupWeb3, setupContract, addEthereumAccounts, setResult, web3LoadingError,  } from "./actions";
 import Web3 from "web3";
 import { MY_CONTRACT_ADDRESS, MY_CONTRACT_ABI  } from '../ABI/myContract';
 // import { YENIX_ABI, YENIX_ADDRESS } from "../ABI/Yenix";
@@ -43,25 +43,18 @@ export const setNumber= async(contract, accounts,number)=>{
  
    const receipt =  await contract.methods.setNumber(number).send({from : accounts[0]});
    console.log("after  setting number ", receipt);
-   // dispatch(issueSmartLc(lc));
+  
 
 }
 export const viewBoth = async(contract, accounts, dispatch)=>{
-    console.log("before virewing",contract, accounts, dispatch);
- 
+    console.log("before virewing",contract.methods, accounts, dispatch);
+
    const receipt =  await contract.methods.getBoth().call({from : accounts[0]});
    console.log("after  viewing  ", receipt);
-   // dispatch(issueSmartLc(lc));
+   dispatch(setResult(receipt));
 
 }
 
-// export const registerLc = async(contract, accounts, transaction, dispatch)=>{
-//     console.log("before transaction",transaction);
-//     console.log("Contract",contract,"Account, account");
-//    // const receipt =  await contract.methods.addTransaction(transaction.transactionDescription, transaction.amount).send({from : accounts[0]});
-//    // console.log("after  transaction ", receipt);
-//     dispatch(issueSmartLc(transaction));
-// }
 
 
 export const loadContract = async(lcContract,tokenContract, accounts,  dispatch)=>{
